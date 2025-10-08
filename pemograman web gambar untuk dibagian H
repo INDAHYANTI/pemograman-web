@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Sederhana</title>
+</head>
+<body>
+
+  <h2>Template Sederhana</h2>
+  <p>Contoh halaman dengan gambar, tabel, tombol, dan form input.</p>
+
+  <!-- Gambar -->
+  <img src="https://picsum.photos/400/200" alt="Gambar Contoh" width="400">
+
+  <br><br>
+  <button onclick="alert('Kamu menekan tombol!')">Klik Saya</button>
+
+  <hr>
+
+  <!-- Tabel -->
+  <h3>Daftar Barang</h3>
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>Nama Barang</th>
+      <th>Kategori</th>
+      <th>Harga</th>
+    </tr>
+    <tr>
+      <td>Pensil</td>
+      <td>Alat Tulis</td>
+      <td>Rp2.000</td>
+    </tr>
+    <tr>
+      <td>Buku</td>
+      <td>Alat Tulis</td>
+      <td>Rp5.000</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <!-- Form Input -->
+  <h3>Form Tambah Barang</h3>
+  <form onsubmit="return tambahData()">
+    Nama Barang: <input type="text" id="nama"><br><br>
+    Kategori: <input type="text" id="kategori"><br><br>
+    Harga: <input type="number" id="harga"><br><br>
+    <input type="submit" value="Tambah">
+  </form>
+
+  <script>
+    function tambahData() {
+      let nama = document.getElementById("nama").value;
+      let kategori = document.getElementById("kategori").value;
+      let harga = document.getElementById("harga").value;
+
+      if (nama === "" || kategori === "" || harga === "") {
+        alert("Semua kolom harus diisi!");
+        return false;
+      }
+
+      let table = document.querySelector("table");
+      let newRow = table.insertRow(-1);
+      newRow.insertCell(0).innerHTML = nama;
+      newRow.insertCell(1).innerHTML = kategori;
+      newRow.insertCell(2).innerHTML = "Rp" + harga;
+
+      alert("Data berhasil ditambahkan!");
+      return false;
+    }
+  </script>
+
+</body>
+</html>
